@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Resume</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg">
+
+<div class="card">
+    <h2>Upload Your Resume</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="resume" required>
+        <button type="submit">Analyze Resume</button>
+    </form><br>
+
+    <a href="/logout" class="logout">Logout</a>
+</div>
+
+</body>
+</html>
