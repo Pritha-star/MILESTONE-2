@@ -67,6 +67,4 @@ The primary goal of this project is to help students and job seekers improve the
 - Git
 - GitHub
 
----
 
-# 📂 Project Structure
