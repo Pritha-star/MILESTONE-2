@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .result-card {
+            width: 750px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            margin-top: 25px;
+        }
+
+        .section h3 {
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+
+        .missing {
+            color: red;
+        }
+
+        .weak {
+            color: darkred;
+        }
+
+        .strength {
+            color: green;
+        }
+
+        .score {
+            font-size: 22px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background: #eee;
+            height: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #4CAF50, #2ecc71);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="result-card">
+
+    <h2>Resume Analysis Report</h2>
+
+    <div class="section">
+        <p><strong>Total Words:</strong> {{ word_count }}</p>
+        <p class="score">Resume Score: {{ score }}%</p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: {{ score }}%;"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Skills Found</h3>
+        <ul>
+            {% for skill in found_skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Missing Skills</h3>
+        <ul>
+            {% for skill in missing_skills %}
+                <li class="missing">{{ skill }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Strengths</h3>
+        <ul>
+            {% for item in strengths %}
+                <li class="strength">{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Weaknesses</h3>
+        <ul>
+            {% for item in weaknesses %}
+                <li class="weak">{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Suggestions</h3>
+        <ul>
+            {% for item in suggestions %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>
