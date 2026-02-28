@@ -1,4 +1,4 @@
-#  Resume Analyzer Web Application
+#  Resume Analyzer 
 
 # Introduction
 
